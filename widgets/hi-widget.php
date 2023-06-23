@@ -1,6 +1,8 @@
 <?php
 
-
+/*
+ * Generic Widget to have a starting point for new widgets
+ */
 class Hi_Widget extends \Elementor\Widget_Base {
 	public function get_name()
 	{
@@ -21,7 +23,7 @@ class Hi_Widget extends \Elementor\Widget_Base {
 	public function render(){
 		?>
 		
-		<h1>HI! I'm Carlos</h1>
+		<h1>HI! I'm Carlos, and I work for the Jucux company</h1>
 		
 		<?php
 	}
