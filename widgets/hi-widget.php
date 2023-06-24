@@ -23,7 +23,7 @@ class Hi_Widget extends \Elementor\Widget_Base {
 	public function render(){
 		?>
 		
-		<h1>HI! I'm Carlos, and I work for the Jucux company</h1>
+		<h1>HI! I'm Carlos, and I work for the Jucux company <i class="fa fa-bomb"></i></h1>
 		
 		<?php
 	}

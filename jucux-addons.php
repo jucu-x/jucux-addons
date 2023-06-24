@@ -37,9 +37,11 @@ class JucuxAddons
 	public function register_widgets($widgets_manager){
 		// Importing Widgets
 		require_once(__DIR__ . '/widgets/hi-widget.php');
+		require_once(__DIR__ . '/widgets/basic-menu-widget.php');
 
 		// Registering Widgets
 		$widgets_manager -> register(new Hi_Widget());
+		$widgets_manager -> register(new Basic_Menu_Widget());
 	}
 }
 
