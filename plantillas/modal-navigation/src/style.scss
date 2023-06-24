@@ -5,101 +5,198 @@
 // *:hover{
 // 	border-style: solid;
 // }
-img{
-	margin: 0;
-	display: block;
+img {
+    margin: 0;
+    display: block;
 }
-.upper-header{
-	font-family: $lato;
-	font-size: 0.8rem;
-	font-weight: 600;
-	background-color: $fitectur-blue;
-	padding: 10px 30px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	color: white;
-	ul{
-		display: flex;
-		gap: 30px;
-	}
-	.upper-left{
-		display: flex;
-		gap: 10px;
-	}
-	.social-icons{
-		display: flex;
-		gap: 10px;
-		font-size: 1rem;
-	}
+.upper-header {
+    font-family: $lato;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: $fitectur-blue;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    ul {
+        display: flex;
+        gap: 30px;
+    }
+    .upper-left {
+        display: flex;
+        gap: 10px;
+    }
+    .social-icons {
+        display: flex;
+        gap: 10px;
+        font-size: 1rem;
+    }
 }
 header {
-	box-shadow: 0px 5px 4px 1px $fitectur-gray-2;
+    box-shadow: 0px 5px 4px 1px $fitectur-gray-2;
     display: flex;
     justify-content: space-between;
-	font-family: $lato;
-	background-color: white;
+    font-family: $lato;
+    background-color: white;
     .main {
-		width: 50%;
-		padding: 10px 30px;
-		display: flex;
-		justify-content: left;
-		align-items: center;
-		.isotipo{
-			min-width: 50px;
-			padding: 0;
-			margin-right: 30px;
-		}
-		h2{
-			font-weight: 700;
-			color: $fitectur-gray-1;
-		}
+        width: 50%;
+        padding: 10px 30px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        .isotipo {
+            min-width: 50px;
+            padding: 0;
+            margin-right: 30px;
+        }
+        h2 {
+            font-weight: 700;
+            color: $fitectur-gray-1;
+        }
     }
-	.second{
-		color: white;
-		padding: 10px 30px;
-		margin: 0;
-		width: 50%;
-		background-color: $fitectur-blue;
-		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: end;
-		gap: 30px;
+    .second {
+        color: white;
+        padding: 10px 30px;
+        margin: 0;
+        width: 50%;
+        background-color: $fitectur-blue;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 30px;
 
-		.congreso_link{
-			background-color: $fitectur-red;
-			padding: 0.5rem 1rem;
-			border-radius: 0.5rem;
-			font-weight: 600;
-		}
-		
-	}
-	.second::before{
-		clip-path: polygon(100% 0, 0 0, 100% 100%);
-		content: "";
-		position: absolute;
-		background-color: $fitectur-blue;
-		width: 100px;
-		height: 100%;
-		top: 0;
-		left: -100px;
-		
-	}
+        .congreso_link {
+            background-color: $fitectur-red;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+        }
+    }
+    .second::before {
+        clip-path: polygon(100% 0, 0 0, 100% 100%);
+        content: "";
+        position: absolute;
+        background-color: $fitectur-blue;
+        width: 100px;
+        height: 100%;
+        top: 0;
+        left: -100px;
+    }
 }
-.jucux-nav-button{
-	position: relative;
-	font-size: 2rem;
-	cursor: pointer;
-	z-index: 300;
+.jucux-nav-button {
+    font-size: 2rem;
+    cursor: pointer;
 }
-.jucux-nav-modal{
-	// display: none;
-	position: fixed;
-	background-color: $fitectur-blue-8;
-	left: 0;
-	top: 0;
-	height: 100vh;
-	width: 100vw;
-}
+.jucux-close-nav-button {
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
 
+    right: 30px;
+    top: 30px;
+    color: $fitectur-blue;
+}
+.jucux-nav-modal {
+    // display: none;
+    // opacity: 0%;
+	transition: opacity 500ms;
+    display: flex;
+	opacity: 100%;
+    position: fixed;
+    background-color: $fitectur-blue-8;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+
+    .jucux-activities-menu-wrapper {
+        width: 25%;
+        ul {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 19vh 0px;
+            align-items: start;
+            justify-content: space-between;
+
+            li {
+                width: 100%;
+                padding-right: 6vw;
+                font-weight: 600;
+            }
+            a {
+                transition: background-color 500ms;
+                padding: 10px 20px;
+                display: block;
+                border-radius: 0px 10px 10px 0px;
+            }
+            a:hover {
+                background-color: $fitectur-strong-pink;
+            }
+        }
+    }
+    .jucux-pages-menu-wrapper {
+        width: 75%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        .jucux-main-menu {
+            position: relative;
+            color: $fitectur-blue;
+            height: 80%;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            padding: 0vh 40px;
+            margin: 12vh 0;
+            align-items: start;
+            justify-content: flex-start;
+            gap: 3rem;
+            font-weight: 500;
+            font-size: 1.5rem;
+            border-right-style: solid;
+            border-right-width: 2px;
+            border-right-color: $fitectur-gray-2;
+			a:hover{
+				color: $fitectur-red;
+			}
+            .sub-menu {
+				
+                position: absolute;
+                left: 100%;
+                top: 0px;
+                height: 100%;
+                width: 100%;
+                
+                display: none;
+                flex-direction: column;
+                padding: 0vh 40px;
+                align-items: start;
+                justify-content: flex-start;
+                gap: 2rem;
+                font-size: 1.3rem;
+            }
+        }
+        .jucux-direct-access-links {
+            background-color: $fitectur-blue;
+            color: white;
+            height: 20%;
+            padding: 20px;
+            ul {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                height: calc(100% - 40px);
+                li {
+                    font-weight: 600;
+                    font-size: 1.5rem;
+					a:hover{
+						text-decoration: underline;
+					}
+                }
+            }
+        }
+    }
+}
