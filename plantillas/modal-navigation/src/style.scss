@@ -2,14 +2,12 @@
 @import "./scss/base";
 @import "./scss/colors";
 @import "./scss/fonts";
-// *:hover{
-// 	border-style: solid;
-// }
-img {
-    margin: 0;
-    display: block;
-}
-.upper-header {
+
+
+.jucux-fitectur-upper-header {
+    @media (max-width: 490px) {
+        display: none;
+    }
     font-family: $lato;
     font-size: 0.8rem;
     font-weight: 600;
@@ -23,178 +21,312 @@ img {
         display: flex;
         gap: 30px;
     }
-    .upper-left {
+    .jucux-fitectur-upper-header-left {
         display: flex;
+        flex-wrap: wrap;
         gap: 10px;
     }
-    .social-icons {
+    .jucux-fitectur-upper-header-social-icons {
         display: flex;
-        gap: 10px;
+        gap: 1.2rem;
         font-size: 1rem;
     }
 }
-header {
+.jucux-fitectur-main-header {
     box-shadow: 0px 5px 4px 1px $fitectur-gray-2;
     display: flex;
     justify-content: space-between;
-    font-family: $lato;
     background-color: white;
-    .main {
-        width: 50%;
-        padding: 10px 30px;
+    font-family: $lato;
+	
+	img {
+		display: block;
+	}
+
+    .jucux-fitectur-main-header-info {
         display: flex;
         justify-content: left;
         align-items: center;
-        .isotipo {
+        width: 50%;
+        padding: 10px 30px;
+        .jucux-fitectur-main-header-isotipo {
             min-width: 50px;
-            padding: 0;
             margin-right: 30px;
+            padding: 0;
         }
         h2 {
             font-weight: 700;
             color: $fitectur-gray-1;
         }
+        @media (max-width: 490px) {
+            flex-grow: 1;
+        }
     }
-    .second {
-        color: white;
-        padding: 10px 30px;
-        margin: 0;
-        width: 50%;
-        background-color: $fitectur-blue;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: end;
-        gap: 30px;
 
-        .congreso_link {
+    .jucux-fitectur-main-header-buttons {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 30px;
+        position: relative;
+        width: 50%;
+        margin: 0;
+        padding: 10px 30px;
+        background-color: $fitectur-blue;
+        color: white;
+
+        @media (max-width: 490px) {
+            width: fit-content;
+            padding: 0;
+            background-color: unset;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100px;
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+            width: 100px;
+            height: 100%;
+            background-color: $fitectur-blue;
+            @media (max-width: 490px) {
+                display: none;
+            }
+        }
+
+        .jucux-fitectur-main-header-congress-link {
+            @media (max-width: 490px) {
+                display: none;
+            }
             background-color: $fitectur-red;
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
             font-weight: 600;
         }
     }
-    .second::before {
-        clip-path: polygon(100% 0, 0 0, 100% 100%);
-        content: "";
-        position: absolute;
+}
+
+.jucux-fitectur-mega-menu-widget-burger-button {
+    cursor: pointer;
+    font-size: 2rem;
+    @media (max-width: 490px) {
+        margin: 10px;
+        padding: 15px;
         background-color: $fitectur-blue;
-        width: 100px;
-        height: 100%;
-        top: 0;
-        left: -100px;
+        border-radius: 5px;
+        font-size: 2.2rem;
     }
 }
-.jucux-nav-button {
-    font-size: 2rem;
-    cursor: pointer;
-}
-.jucux-close-nav-button {
-    position: absolute;
-    font-size: 2rem;
-    cursor: pointer;
 
-    right: 30px;
+.jucux-fitectur-mega-menu-widget-close-button {
+    position: absolute;
+    z-index: 600;
     top: 30px;
+    right: 30px;
+    cursor: pointer;
+    font-size: 2rem;
     color: $fitectur-blue;
 }
-.jucux-nav-modal {
+// SECTION: mmw = Mega Menu Widget
+.jucux-fitectur-mmw-nav-modal {
     // display: none;
     // opacity: 0%;
-	transition: opacity 500ms;
-    display: flex;
-	opacity: 100%;
+    background-blend-mode: difference;
+    display: none;
     position: fixed;
-    background-color: $fitectur-blue-8;
-    left: 0;
     top: 0;
-    height: 100vh;
+    left: 0;
+    opacity: 0%;
     width: 100vw;
+    height: 100vh;
+    transition: opacity 500ms;
+    background-color: $fitectur-red-8;
+    background-image: url("./assets/img/pattern1.svg"); // NOTE: Patrón 1 Seleccionar
+    background-size: 50vh;
 
-    .jucux-activities-menu-wrapper {
+    .jucux-fitectur-mmw-activities-menu-wrapper {
+        @media (max-width: 490px) {
+            display: none;
+        }
         width: 25%;
+
         ul {
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            align-items: start;
             height: 100%;
             padding: 19vh 0px;
-            align-items: start;
-            justify-content: space-between;
-
             li {
                 width: 100%;
                 padding-right: 6vw;
+                font-size: 1.6rem;
                 font-weight: 600;
+                @media (max-width: 1370px) {
+                    font-size: 1.3rem;
+                }
             }
             a {
-                transition: background-color 500ms;
-                padding: 10px 20px;
                 display: block;
+                padding: 10px 20px;
+                transition: background-color 500ms;
                 border-radius: 0px 10px 10px 0px;
             }
-            a:hover {
-                background-color: $fitectur-strong-pink;
+            
+            .jucux-fitectur-mmw-comercial-area-activity {
+                border-left-width: 5px;
+                border-left-style: solid;
+                border-left-color: $fitectur-strong-pink;
+				&:hover{
+					background-color: $fitectur-strong-pink;
+				}
+            }
+            .jucux-fitectur-mmw-academic-area-activity {
+                border-left-width: 5px;
+                border-left-style: solid;
+                border-left-color: $fitectur-strong-green;
+				&:hover{
+					background-color: $fitectur-strong-green;
+				}
+            }
+            .jucux-fitectur-mmw-cultural-area-activity {
+                border-left-width: 5px;
+                border-left-style: solid;
+                border-left-color: $fitectur-strong-orange;
+				&:hover{
+					background-color: $fitectur-strong-orange;
+				}
             }
         }
     }
-    .jucux-pages-menu-wrapper {
+
+    .jucux-fitectur-mmw-pages-menu-wrapper {
         width: 75%;
-        background-color: white;
+        background-color: #ffffff;
         display: flex;
         flex-direction: column;
-        .jucux-main-menu {
-            position: relative;
-            color: $fitectur-blue;
-            height: 80%;
-            width: 50%;
+        @media (max-width: 490px) {
+            width: 100%;
+            height: 100vh;
+        }
+        .jucux-fitectur-mmw-main-menu {
             display: flex;
             flex-direction: column;
-            padding: 0vh 40px;
-            margin: 12vh 0;
+            justify-content: center;
             align-items: start;
-            justify-content: flex-start;
-            gap: 3rem;
+            gap: 5vh;
+            flex-grow: 3;
+            position: relative;
+            width: 100%;
+            margin: 10vh 0px;
+            padding: 0vh 0px 0px 6vw;
+            font-size: 2.4rem;
             font-weight: 500;
-            font-size: 1.5rem;
-            border-right-style: solid;
-            border-right-width: 2px;
-            border-right-color: $fitectur-gray-2;
-			a:hover{
-				color: $fitectur-red;
-			}
+            color: $fitectur-blue;
+            @media (max-width: 1370px) {
+                font-size: 1.8rem;
+            }
+            @media (max-width: 490px) {
+                justify-content: flex-start;
+                align-items: center;
+                flex-grow: 2;
+                overflow-y: scroll;
+                width: auto;
+                margin: 20px 30px;
+                padding: 30px 0px;
+                text-align: center;
+            }
+
+            p {
+                cursor: default;
+            }
+            li {
+                width: 50%;
+                @media (max-width: 490px) {
+                    width: 100%;
+                }
+            }
+
+            a:hover,
+            p:hover {
+                color: $fitectur-red;
+            }
             .sub-menu {
-				
-                position: absolute;
-                left: 100%;
-                top: 0px;
-                height: 100%;
-                width: 100%;
-                
+				transition: opacity 500ms, left 500ms;
                 display: none;
                 flex-direction: column;
-                padding: 0vh 40px;
+                justify-content: center;
                 align-items: start;
-                justify-content: flex-start;
                 gap: 2rem;
-                font-size: 1.3rem;
+                position: absolute;
+                top: 0px;
+                left: 0%;
+				opacity: 0%;
+                width: 50%;
+                height: 100%;
+                padding: 0vh 40px;
+                border-left-width: 1px;
+                border-left-style: solid;
+                border-left-color: $fitectur-gray-2;
+                font-size: 1.6rem;
+                @media (max-width: 1370px) {
+                    font-size: 1.3rem;
+                }
+                @media (max-width: 490px) {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    position: static;
+                    width: auto;
+                    padding: 0;
+                    border-style: none;
+                    font-size: 1rem;
+					opacity: 100%;
+                }
             }
         }
-        .jucux-direct-access-links {
+        .jucux-fitectur-mmw-direct-access-links {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: 1.5rem;
+            flex-grow: 2;
+            max-height: 20vh;
+            padding: 30px 6vw;
             background-color: $fitectur-blue;
             color: white;
-            height: 20%;
-            padding: 20px;
+
+            @media (max-width: 1370px) {
+                gap: 1.3rem;
+            }
+            @media (max-width: 490px) {
+                flex-grow: 1;
+            }
+
+            h3 {
+                display: block;
+                font-size: 0.8rem;
+                color: #ddcfcc;
+            }
             ul {
                 display: flex;
-                justify-content: space-evenly;
+                justify-content: center;
                 align-items: center;
-                height: calc(100% - 40px);
+                gap: 4rem;
                 li {
+                    font-size: 1.3rem;
                     font-weight: 600;
-                    font-size: 1.5rem;
-					a:hover{
-						text-decoration: underline;
-					}
+
+                    @media (max-width: 1370px) {
+                        font-size: 1.1rem;
+                        font-weight: 700;
+                    }
+
+                    a:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
         }

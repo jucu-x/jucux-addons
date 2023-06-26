@@ -11,8 +11,9 @@
         <link rel="stylesheet" href="src/style.scss" />
     </head>
     <body>
-        <div class="upper-header">
-            <nav class="upper-left">
+        <div class="jucux-fitectur-upper-header">
+            <!-- SECTION: UPPER HEADER -->
+            <nav class="jucux-fitectur-upper-header-left">
                 <ul>
                     <li><a href="">Inicio</a></li>
                     <li><a href="">Qué Es FITECTUR</a></li>
@@ -26,110 +27,135 @@
                     <li><a href="">Contacto</a></li>
                 </ul>
             </nav>
-            <div class="social-icons">
-                <i class="fa-brands fa-youtube"></i>
-                <i class="fa-brands fa-tiktok"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-square-facebook"></i>
+            <!-- !SECTION -->
+            <!-- NOTE: You should be able to select the social media links -->
+            <div class="jucux-fitectur-upper-header-social-icons">
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                <a href=""><i class="fa-brands fa-tiktok"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-square-facebook"></i></a>
             </div>
         </div>
-        <header>
-            <div class="main">
-                <div class="isotipo"><img src="/src/assets/img/FITECTUR_ISOTIPO.svg" alt="" /></div>
+        <header class="jucux-fitectur-main-header">
+            <div class="jucux-fitectur-main-header-info">
+                <!-- NOTE: IMAGEN FITECTUR_ISOTIPO.svg (LA C DEL HEADER) -->
+                <div class="jucux-fitectur-main-header-isotipo">
+                    <img src="/src/assets/img/FITECTUR_ISOTIPO.svg" alt="" />
+                </div>
+                <!-- NOTE: SE DEBE PODER CAMBIAR LA FECHA DEL EVENTO -->
                 <h2>Del 29/09 al 29/10</h2>
             </div>
-            <div class="second">
-                <a class="congreso_link" href="">Congreso Internacional</a>
-                <div>
-                    <button id="jucux_open_nav_button" class="jucux-nav-button"><i class="fa fa-bars"></i></button>
-                    <nav id="jucux_nav_modal" class="jucux-nav-modal">
-						<button id="jucux_close_nav_button" class="jucux-close-nav-button"><i class="fa fa-times"></i></button>
-                        <div class="jucux-activities-menu-wrapper">
+            <div class="jucux-fitectur-main-header-buttons">
+                <!-- NOTE: ENLACE DE CONGRESO -->
+                <a class="jucux-fitectur-main-header-congress-link" href="">Congreso Internacional</a>
+                <!-- SECTION: MEGA MENU WIDGET -->
+                <div class="jucux-fitectur-mega-menu-widget jucux-fitectur-mmw">
+                    <button
+                        id="jucux_fitectur_mega_menu_widget_burger_button"
+                        class="jucux-fitectur-mega-menu-widget-burger-button"
+                    >
+                        <!-- NOTE: SE DEBE CAMBIAR EL ÍCONO -->
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <nav id="jucux_fitectur_mmw_nav_modal" class="jucux-fitectur-mmw-nav-modal">
+                        <button
+                            id="jucux_fitectur_mega_menu_widget_close_button"
+                            class="jucux-fitectur-mega-menu-widget-close-button"
+                        >
+                            <!-- NOTE: SE DEBE CAMBIAR EL ÍCONO -->
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <div class="jucux-fitectur-mmw-activities-menu-wrapper">
                             <ul>
                                 <li>
-                                    <a href="#">Outlet Turístico</a>
+                                    <a class="jucux-fitectur-mmw-comercial-area-activity" href="#">Networking</a>
                                 </li>
                                 <li>
-                                    <a href="#">Networking</a>
+                                    <a class="jucux-fitectur-mmw-comercial-area-activity" href="#">Workshop</a>
                                 </li>
                                 <li>
-                                    <a href="#">Workshop</a>
+                                    <a class="jucux-fitectur-mmw-comercial-area-activity" href="#">Outlet Turístico</a>
                                 </li>
                                 <li>
-                                    <a href="#">Construyendo Iniciativas</a>
+                                    <a class="jucux-fitectur-mmw-academic-area-activity" href="#"
+                                        >Construyendo Iniciativas</a
+                                    >
                                 </li>
                                 <li>
-                                    <a href="#">Movimiento Naranja</a>
+                                    <a class="jucux-fitectur-mmw-cultural-area-activity" href="#">Movimiento Naranja</a>
                                 </li>
                                 <li>
-                                    <a href="#">Evento Gastronómico</a>
+                                    <a class="jucux-fitectur-mmw-cultural-area-activity" href="#"
+                                        >Festival Gastronómico</a
+                                    >
                                 </li>
                             </ul>
                         </div>
-                        <div class="jucux-pages-menu-wrapper">
-                            <ul id="jucux_main_menu" class="jucux-main-menu">
+                        <div class="jucux-fitectur-mmw-pages-menu-wrapper">
+                            <ul id="jucux_fitectur_mmw_main_menu" class="jucux-fitectur-mmw-main-menu">
                                 <li>
-                                    <a id="jucux_home" href="#">Inicio</a>
+                                    <a class="jucux-fitectur-mmw-main-menu-link" href="#">Inicio</a>
                                 </li>
                                 <li>
-                                    <a id="jucux_about_fitectur" href="#">Sobre FITECTUR</a>
+                                    <a class="jucux-fitectur-mmw-main-menu-link" href="#">Sobre FITECTUR</a>
                                 </li>
                                 <li>
-                                    <a id="jucux_comercial_area" href="#">Área Comercial</a>
-									<ul class="sub-menu">
+                                    <a class="jucux-fitectur-mmw-main-menu-link" href="#">Área Comercial</a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="#">Networking</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Workshop</a>
+                                        </li>
 										<li>
-											<a href="#">Outlet Turístico</a>
-										</li>
-										<li>
-											<a href="#">Networking</a>
-										</li>
-										<li>
-											<a href="#">Workshop</a>
-										</li>
-									</ul>
+                                            <a href="#">Outlet Turístico</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <p id="jucux_academic_area">Área Académica</p>
-									<ul class="sub-menu">
+                                    <p class="jucux-fitectur-mmw-main-menu-link">Área Académica</p>
+                                    <ul class="sub-menu">
 										<li>
-											<a href="#">Congreso Internacional</a>
-										</li>
-										<li>
-											<a href="#">Construyendo Iniciativas</a>
-										</li>
-									</ul>
+                                            <a href="#">Construyendo Iniciativas</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Congreso Internacional</a>
+                                        </li>
+                                    </ul>
                                 </li>
-								<li>
-                                    <p id="jucux_cultural_area">Área Cultural</p>
-									<ul class="sub-menu">
-										<li>
-											<a href="#">Movimiento Naranja</a>
-										</li>
-										<li>
-											<a href="#">Evento Gastronómico</a>
-										</li>
-									</ul>
-                                </li>
-                                
                                 <li>
-                                    <a id="jucux_faq" href="#" >Preguntas Frecuentes</a>
+                                    <p class="jucux-fitectur-mmw-main-menu-link">Área Cultural</p>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="#">Movimiento Naranja</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Festival Gastronómico</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a class="jucux-fitectur-mmw-main-menu-link" href="#">Preguntas Frecuentes</a>
                                 </li>
                             </ul>
-							<div class="jucux-direct-access-links">
-								<h3>Accesos directos:</h3>
-								<ul>
-									<li>
-										<a href="#">CONGRESO INTERNACIONAL</a>
-									</li>
-									<li>
-										<a href="#">STANDS</a>
-									</li>
-								</ul>
-							</div>
+                            <div class="jucux-fitectur-mmw-direct-access-links">
+                                <h3>Accesos directos:</h3>
+                                <ul>
+                                    <li>
+                                        <a href="#">CONGRESO INTERNACIONAL</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">STANDS</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </nav>
                 </div>
+                <!-- !SECTION: MEGA MENU WIDGET -->
             </div>
         </header>
 
