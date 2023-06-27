@@ -1,0 +1,241 @@
+@import "./scss/base";
+@import "./scss/colors";
+@import "./scss/fonts";
+
+// SECTION: mmw = Mega Menu Widget
+#jucux_fitectur_mmw {
+    @import "./scss/reset";
+
+    font-family: $lato;
+    img {
+        display: block;
+    }
+
+    .jucux-fitectur-mega-menu-widget-burger-button {
+        cursor: pointer;
+        font-size: 2rem;
+        @media (max-width: 490px) {
+            margin: 10px;
+            padding: 15px;
+            background-color: $fitectur-blue;
+            border-radius: 5px;
+            font-size: 2.2rem;
+        }
+    }
+
+    .jucux-fitectur-mega-menu-widget-close-button {
+        position: absolute;
+        z-index: 1200;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
+        font-size: 2rem;
+        color: $fitectur-blue;
+    }
+
+    .jucux-fitectur-mmw-nav-modal {
+        // @import "the-new-css-reset/css/reset.css";
+        // display: none;
+        // opacity: 0%;
+        background-blend-mode: difference;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+		z-index: 1000;
+        opacity: 0%;
+        width: 100vw;
+        height: 100vh;
+        transition: opacity 500ms;
+        background-color: $fitectur-red-8;
+        background-image: url("./assets/img/pattern1.svg"); // NOTE: Patrón 1 Seleccionar
+        background-size: 50vh;
+
+        .jucux-fitectur-mmw-activities-menu-wrapper {
+            @media (max-width: 490px) {
+                display: none;
+            }
+            width: 25%;
+			color: white;
+            ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: start;
+                height: 100%;
+                padding: 19vh 0px;
+                li {
+                    width: 100%;
+                    padding-right: 6vw;
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                    @media (max-width: 1370px) {
+                        font-size: 1.3rem;
+                    }
+                }
+                a {
+                    display: block;
+                    padding: 10px 20px;
+                    transition: background-color 500ms;
+                    border-radius: 0px 10px 10px 0px;
+                }
+
+                .jucux-fitectur-mmw-comercial-area-activity {
+                    border-left-width: 5px;
+                    border-left-style: solid;
+                    border-left-color: $fitectur-strong-pink;
+                    &:hover {
+                        background-color: $fitectur-strong-pink;
+                    }
+                }
+                .jucux-fitectur-mmw-academic-area-activity {
+                    border-left-width: 5px;
+                    border-left-style: solid;
+                    border-left-color: $fitectur-strong-green;
+                    &:hover {
+                        background-color: $fitectur-strong-green;
+                    }
+                }
+                .jucux-fitectur-mmw-cultural-area-activity {
+                    border-left-width: 5px;
+                    border-left-style: solid;
+                    border-left-color: $fitectur-strong-orange;
+                    &:hover {
+                        background-color: $fitectur-strong-orange;
+                    }
+                }
+            }
+        }
+
+        .jucux-fitectur-mmw-pages-menu-wrapper {
+            width: 75%;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            @media (max-width: 490px) {
+                width: 100%;
+                height: 100vh;
+            }
+            .jucux-fitectur-mmw-main-menu {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: start;
+                gap: 5vh;
+                flex-grow: 3;
+                position: relative;
+                width: 100%;
+                margin: 10vh 0px;
+                padding: 0vh 0px 0px 6vw;
+                font-size: 2.4rem;
+                font-weight: 500;
+                color: $fitectur-blue;
+                @media (max-width: 1370px) {
+                    font-size: 1.8rem;
+                }
+                @media (max-width: 490px) {
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-grow: 2;
+                    overflow-y: scroll;
+                    width: auto;
+                    margin: 20px 30px;
+                    padding: 30px 0px;
+                    text-align: center;
+                }
+
+                p {
+                    cursor: default;
+                }
+                li {
+                    width: 50%;
+                    @media (max-width: 490px) {
+                        width: 100%;
+                    }
+                }
+
+                a:hover,
+                p:hover {
+                    color: $fitectur-red;
+                }
+                .sub-menu {
+                    transition: opacity 500ms, left 500ms;
+                    display: none;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: start;
+                    gap: 2rem;
+                    position: absolute;
+                    top: 0px;
+                    left: 0%;
+                    opacity: 0%;
+                    width: 50%;
+                    height: 100%;
+                    padding: 0vh 40px;
+                    border-left-width: 1px;
+                    border-left-style: solid;
+                    border-left-color: $fitectur-gray-2;
+                    font-size: 1.6rem;
+                    @media (max-width: 1370px) {
+                        font-size: 1.3rem;
+                    }
+                    @media (max-width: 490px) {
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        position: static;
+                        width: auto;
+                        padding: 0;
+                        border-style: none;
+                        font-size: 1rem;
+                        opacity: 100%;
+                    }
+                }
+            }
+            .jucux-fitectur-mmw-direct-access-links {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: start;
+                gap: 1.5rem;
+                flex-grow: 2;
+                max-height: 20vh;
+                padding: 30px 6vw;
+                background-color: $fitectur-blue;
+                color: white;
+
+                @media (max-width: 1370px) {
+                    gap: 1.3rem;
+                }
+                @media (max-width: 490px) {
+                    flex-grow: 1;
+                }
+
+                h3 {
+                    display: block;
+                    font-size: 0.8rem;
+                    color: #ddcfcc;
+                }
+                ul {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 4rem;
+                    li {
+                        font-size: 1.3rem;
+                        font-weight: 600;
+
+                        @media (max-width: 1370px) {
+                            font-size: 1.1rem;
+                            font-weight: 700;
+                        }
+
+                        a:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
