@@ -108,6 +108,37 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 		);
 
 		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'style_section',
+			[
+				'label' => esc_html__( 'Style', 'textdomain' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'open_icon_color',
+			[
+				'label' => esc_html__( 'Color del Ícono de Apertura', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'#jucux_fitectur_mmw .jucux-fitectur-mega-menu-widget-burger-button' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'close_icon_color',
+			[
+				'label' => esc_html__( 'Color del Ícono de Cierre', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'#jucux_fitectur_mmw .jucux-fitectur-mega-menu-widget-close-button' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_section();
 	}
 	public function render()
 	{
