@@ -29,19 +29,102 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 	{
 		return ['fitectur-mega-menu-widget-style'];
 	}
+	protected function register_controls()
+	{
+
+		$this->start_controls_section(
+			'fitectur_mmw',
+			[
+				'label' => esc_html__('Mega Menú FITECTUR', 'textdomain'),
+				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'open_icon',
+			[
+				'label' => esc_html__('Ícono de Apertura de Menú', 'textdomain'),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-bars',
+					'library' => 'fa-solid',
+				],
+				'recommended' => [
+					'fa-solid' => [
+						'bars',
+						'align-right',
+						'align-center',
+						'align-justify',
+						'align-left',
+						'stream',
+						'dot-circle',
+						'elipsis-v',
+						'elipsis-h',
+						'equals',
+						'grip-vertical',
+						'cog',
+
+					],
+					'fa-regular' => [
+
+						'play-circle',
+
+					],
+				],
+			]
+		);
+		$this->add_control(
+			'close_icon',
+			[
+				'label' => esc_html__('Ícono para cerrar Menú', 'textdomain'),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-times',
+					'library' => 'fa-solid',
+				],
+				'recommended' => [
+					'fa-solid' => [
+						'times',
+						'angle-down',
+						'caret-down',
+						'caret-square-down',
+						'eject',
+						'minus',
+						'minus-circle',
+						'minus-square',
+						'power-off',
+						'asterisk',
+						'window-close',
+						'window-minimize',
+					],
+					'fa-regular' => [
+						'times',
+						'minus-square',
+						'window-close',
+						'window-minimize',
+					],
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
 	public function render()
 	{
+		$settings = $this->get_settings_for_display();
 ?>
 
 		<div id="jucux_fitectur_mmw" class="jucux-fitectur-mega-menu-widget jucux-fitectur-mmw">
 			<button id="jucux_fitectur_mega_menu_widget_burger_button" class="jucux-fitectur-mega-menu-widget-burger-button">
 				<!-- NOTE: SE DEBE CAMBIAR EL ÍCONO -->
-				<i class="fa fa-bars"></i>m
+				<!-- <i class="fa fa-bars"></i>m -->
+				<?php \Elementor\Icons_Manager::render_icon($settings['open_icon'], ['aria-hidden' => 'true']); ?>
 			</button>
 			<nav id="jucux_fitectur_mmw_nav_modal" class="jucux-fitectur-mmw-nav-modal">
 				<button id="jucux_fitectur_mega_menu_widget_close_button" class="jucux-fitectur-mega-menu-widget-close-button">
 					<!-- NOTE: SE DEBE CAMBIAR EL ÍCONO -->
-					<i class="fa fa-times"></i>c
+					<!-- <i class="fa fa-times"></i>c -->
+					<?php \Elementor\Icons_Manager::render_icon($settings['close_icon'], ['aria-hidden' => 'true']); ?>
 				</button>
 				<div class="jucux-fitectur-mmw-activities-menu-wrapper">
 					<ul>
@@ -129,6 +212,9 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 			</nav>
 		</div>
 
-<?php
+	<?php
+
+
 	}
+	
 }

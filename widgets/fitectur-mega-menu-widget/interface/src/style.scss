@@ -30,6 +30,7 @@
         right: 30px;
         cursor: pointer;
         font-size: 2rem;
+		font-weight: 300;
         color: $fitectur-blue;
     }
 
@@ -45,7 +46,8 @@
 		z-index: 1000;
         opacity: 0%;
         width: 100vw;
-        height: 100vh;
+        // height: 100vh;
+		bottom:0;
         transition: opacity 500ms;
         background-color: $fitectur-red-8;
         background-image: url("./assets/img/pattern1.svg"); // NOTE: Patrón 1 Seleccionar
