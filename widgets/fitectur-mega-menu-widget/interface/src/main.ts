@@ -41,29 +41,32 @@
             let element = e.target as HTMLElement;
             if (element.tagName == "A" || element.tagName == "P") {
                 let submenu = element.parentElement?.querySelector(".sub-menu") as HTMLElement;
+				
+                if (!element.parentElement?.parentElement?.classList.contains("sub-menu")) {
 
-                if (element.classList.contains("jucux-fitectur-mmw-main-menu-link")) {
-                    hideSubMenus();
+                    hideSubMenus(submenu);
                 }
                 if (submenu) {
                     submenu.style.display = "flex";
                     setTimeout(() => {
                         submenu.style.left = "50%";
                         submenu.style.opacity = "100%";
-                    }, 10);
+                    }, 50);
                 }
             }
         }
     }
 
-    function hideSubMenus() {
+    function hideSubMenus(exceptElement: HTMLElement) {
         let submenus = document.querySelectorAll(".jucux-fitectur-mmw-main-menu .sub-menu");
 
         for (let index = 0; index < submenus.length; index++) {
-            const submenu = submenus[index] as HTMLElement;
-            submenu.style.left = "0%";
-            submenu.style.opacity = "0%";
-            submenu.style.display = "none";
+			const submenu = submenus[index] as HTMLElement;
+			if (exceptElement != submenu) {
+				submenu.style.left = "0%";
+				submenu.style.opacity = "0%";
+				submenu.style.display = "none";
+			}
         }
     }
 })();

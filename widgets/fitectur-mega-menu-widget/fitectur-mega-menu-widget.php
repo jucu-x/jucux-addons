@@ -1,8 +1,12 @@
 <?php
 
-/*
- * Generic Widget to have a starting point for new widgets
- */
+// TODO: Necesito poder darle clases distintas a los items del menú de actividades
+// Una opción es usar un menu walker
+// Otra opción es usar javascript para inyectar las clases correspondientes de acuerdo
+// al nombre de la actividad
+// TODO: Necesito que los menús con submenús sean clickables si llevan a otra página
+// O podría hacer que se repita dentro del submenú
+
 class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 {
 	public function get_name()
@@ -29,6 +33,17 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 	{
 		return ['fitectur-mega-menu-widget-style'];
 	}
+	protected function get_available_menus()
+	{
+		$menus = wp_get_nav_menus();
+		$menu_options = [];
+
+		foreach ($menus as $menu) {
+			$menu_options[$menu->slug] = $menu->name;
+		}
+
+		return $menu_options;
+	}
 	protected function register_controls()
 	{
 
@@ -37,6 +52,23 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 			[
 				'label' => esc_html__('Mega Menú FITECTUR', 'textdomain'),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+			]
+		);
+		
+		$this->add_control(
+			'main_menu',
+			[
+				'label' => 'Seleccione Menú Principal',
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => $this->get_available_menus(),
+			]
+		);
+		$this->add_control(
+			'direct_access_links_menu',
+			[
+				'label' => 'Seleccione Menú de Accesos Directos',
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => $this->get_available_menus(),
 			]
 		);
 
@@ -112,7 +144,7 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'style_section',
 			[
-				'label' => esc_html__( 'Style', 'textdomain' ),
+				'label' => esc_html__('Style', 'textdomain'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -120,7 +152,7 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'open_icon_color',
 			[
-				'label' => esc_html__( 'Color del Ícono de Apertura', 'textdomain' ),
+				'label' => esc_html__('Color del Ícono de Apertura', 'textdomain'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'#jucux_fitectur_mmw .jucux-fitectur-mega-menu-widget-burger-button' => 'color: {{VALUE}}',
@@ -130,7 +162,7 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'close_icon_color',
 			[
-				'label' => esc_html__( 'Color del Ícono de Cierre', 'textdomain' ),
+				'label' => esc_html__('Color del Ícono de Cierre', 'textdomain'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'#jucux_fitectur_mmw .jucux-fitectur-mega-menu-widget-close-button' => 'color: {{VALUE}}',
@@ -180,7 +212,7 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 					</ul>
 				</div>
 				<div class="jucux-fitectur-mmw-pages-menu-wrapper">
-					<ul id="jucux_fitectur_mmw_main_menu" class="jucux-fitectur-mmw-main-menu">
+					<!-- <ul id="jucux_fitectur_mmw_main_menu" class="jucux-fitectur-mmw-main-menu">
 						<li>
 							<a class="jucux-fitectur-mmw-main-menu-link" href="#">Inicio</a>
 						</li>
@@ -227,25 +259,36 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 						<li>
 							<a class="jucux-fitectur-mmw-main-menu-link" href="#">Preguntas Frecuentes</a>
 						</li>
-					</ul>
+					</ul> -->
+					<?php
+					wp_nav_menu(array(
+						'menu' => $settings['main_menu'],
+						'depth' => 2,
+						'container' => '',
+						'menu_id' => 'jucux_fitectur_mmw_main_menu',
+						'menu_class' => 'jucux-fitectur-mmw-main-menu'
+					)) ?>
+
 					<div class="jucux-fitectur-mmw-direct-access-links">
 						<h3>Accesos directos:</h3>
-						<ul>
+						<!-- <ul>
 							<li>
 								<a href="#">CONGRESO INTERNACIONAL</a>
 							</li>
 							<li>
 								<a href="#">STANDS</a>
 							</li>
-						</ul>
+						</ul> -->
+
+						<?php
+						wp_nav_menu(array('menu' => $settings['direct_access_links_menu'], 'depth' => 1, 'container' => '')) ?>
 					</div>
 				</div>
 			</nav>
 		</div>
 
-	<?php
+<?php
 
 
 	}
-	
 }

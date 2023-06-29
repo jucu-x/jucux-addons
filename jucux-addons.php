@@ -19,9 +19,9 @@ class JucuxAddons
 	
 	function __construct()
 	{
-		error_log(__FILE__);
-		error_log(plugins_url('', __FILE__));
-		error_log(plugin_dir_url(__FILE__));
+		error_log("----------------------------------");
+		//echo wp_nav_menu(array('menu'=>'main'));
+
 		// Register Category
 		add_action('elementor/elements/categories_registered', [$this, 'add_custom_widget_categories']);
 		// Register Widgets
