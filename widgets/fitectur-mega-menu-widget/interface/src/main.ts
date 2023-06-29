@@ -41,9 +41,8 @@
             let element = e.target as HTMLElement;
             if (element.tagName == "A" || element.tagName == "P") {
                 let submenu = element.parentElement?.querySelector(".sub-menu") as HTMLElement;
-				
-                if (!element.parentElement?.parentElement?.classList.contains("sub-menu")) {
 
+                if (!element.parentElement?.parentElement?.classList.contains("sub-menu")) {
                     hideSubMenus(submenu);
                 }
                 if (submenu) {
@@ -61,12 +60,51 @@
         let submenus = document.querySelectorAll(".jucux-fitectur-mmw-main-menu .sub-menu");
 
         for (let index = 0; index < submenus.length; index++) {
-			const submenu = submenus[index] as HTMLElement;
-			if (exceptElement != submenu) {
-				submenu.style.left = "0%";
-				submenu.style.opacity = "0%";
-				submenu.style.display = "none";
-			}
+            const submenu = submenus[index] as HTMLElement;
+            if (exceptElement != submenu) {
+                submenu.style.left = "0%";
+                submenu.style.opacity = "0%";
+                submenu.style.display = "none";
+            }
+        }
+    }
+
+    // PONER COLOR AL MENÚ DE ACTIVIDADES
+
+    const activities_wrappers = document.querySelectorAll(".jucux-fitectur-mmw-activities-menu-wrapper");
+
+    for (let i = 0; i < activities_wrappers.length; i++) {
+        const activities_wrapper = activities_wrappers[i] as HTMLElement;
+        const activities_list = activities_wrapper.children[0] as HTMLUListElement;
+        const activities_items = activities_list.children;
+
+        for (let j = 0; j < activities_items.length; j++) {
+            const activity = activities_items[j].children[0] as HTMLAnchorElement;
+            switch (activity.textContent?.toLowerCase()) {
+                case "networking":
+                    activity.classList.add("jucux-fitectur-mmw-comercial-area-activity");
+                    break;
+                case "workshop":
+                    activity.classList.add("jucux-fitectur-mmw-comercial-area-activity");
+                    break;
+                case "outlet turístico":
+                    activity.classList.add("jucux-fitectur-mmw-comercial-area-activity");
+                    break;
+                case "construyendo iniciativas":
+                    activity.classList.add("jucux-fitectur-mmw-academic-area-activity");
+                    break;
+                case "movimiento naranja":
+                    activity.classList.add("jucux-fitectur-mmw-cultural-area-activity");
+                    break;
+                case "festival gastronómico":
+                    activity.classList.add("jucux-fitectur-mmw-cultural-area-activity");
+                    break;
+
+                default:
+                    activity.classList.add("jucux-fitectur-mmw-cultural-area-activity");
+                    break;
+            }
+            
         }
     }
 })();

@@ -80,6 +80,12 @@
                     padding: 10px 20px;
                     transition: background-color 500ms;
                     border-radius: 0px 10px 10px 0px;
+					border-left-width: 5px;
+                    border-left-style: solid;
+                    border-left-color: $fitectur-strong-orange;
+                    &:hover {
+                        background-color: $fitectur-strong-orange;
+                    }
                 }
 
                 .jucux-fitectur-mmw-comercial-area-activity {

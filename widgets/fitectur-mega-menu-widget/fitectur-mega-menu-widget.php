@@ -54,11 +54,19 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
-		
+
 		$this->add_control(
 			'main_menu',
 			[
 				'label' => 'Seleccione Menú Principal',
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => $this->get_available_menus(),
+			]
+		);
+		$this->add_control(
+			'activities_menu',
+			[
+				'label' => 'Seleccione Menú de Actividades',
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => $this->get_available_menus(),
 			]
@@ -190,76 +198,15 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 					<?php \Elementor\Icons_Manager::render_icon($settings['close_icon'], ['aria-hidden' => 'true']); ?>
 				</button>
 				<div class="jucux-fitectur-mmw-activities-menu-wrapper">
-					<ul>
-						<li>
-							<a class="jucux-fitectur-mmw-comercial-area-activity" href="#">Networking</a>
-						</li>
-						<li>
-							<a class="jucux-fitectur-mmw-comercial-area-activity" href="#">Workshop</a>
-						</li>
-						<li>
-							<a class="jucux-fitectur-mmw-comercial-area-activity" href="#">Outlet Turístico</a>
-						</li>
-						<li>
-							<a class="jucux-fitectur-mmw-academic-area-activity" href="#">Construyendo Iniciativas</a>
-						</li>
-						<li>
-							<a class="jucux-fitectur-mmw-cultural-area-activity" href="#">Movimiento Naranja</a>
-						</li>
-						<li>
-							<a class="jucux-fitectur-mmw-cultural-area-activity" href="#">Festival Gastronómico</a>
-						</li>
-					</ul>
+					<?php
+					wp_nav_menu(array(
+						'menu' => $settings['activities_menu'],
+						'depth' => 1,
+						'container' => '',
+					)) ?>
 				</div>
 				<div class="jucux-fitectur-mmw-pages-menu-wrapper">
-					<!-- <ul id="jucux_fitectur_mmw_main_menu" class="jucux-fitectur-mmw-main-menu">
-						<li>
-							<a class="jucux-fitectur-mmw-main-menu-link" href="#">Inicio</a>
-						</li>
-						<li>
-							<a class="jucux-fitectur-mmw-main-menu-link" href="#">Sobre FITECTUR</a>
-						</li>
-						<li>
-							<a class="jucux-fitectur-mmw-main-menu-link" href="#">Área Comercial</a>
-							<ul class="sub-menu">
-								<li>
-									<a href="#">Networking</a>
-								</li>
-								<li>
-									<a href="#">Workshop</a>
-								</li>
-								<li>
-									<a href="#">Outlet Turístico</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<p class="jucux-fitectur-mmw-main-menu-link">Área Académica</p>
-							<ul class="sub-menu">
-								<li>
-									<a href="#">Construyendo Iniciativas</a>
-								</li>
-								<li>
-									<a href="#">Congreso Internacional</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<p class="jucux-fitectur-mmw-main-menu-link">Área Cultural</p>
-							<ul class="sub-menu">
-								<li>
-									<a href="#">Movimiento Naranja</a>
-								</li>
-								<li>
-									<a href="#">Festival Gastronómico</a>
-								</li>
-							</ul>
-						</li>
 
-						<li>
-							<a class="jucux-fitectur-mmw-main-menu-link" href="#">Preguntas Frecuentes</a>
-						</li>
-					</ul> -->
 					<?php
 					wp_nav_menu(array(
 						'menu' => $settings['main_menu'],
@@ -271,15 +218,6 @@ class Fitectur_Mega_Menu_Widget extends \Elementor\Widget_Base
 
 					<div class="jucux-fitectur-mmw-direct-access-links">
 						<h3>Accesos directos:</h3>
-						<!-- <ul>
-							<li>
-								<a href="#">CONGRESO INTERNACIONAL</a>
-							</li>
-							<li>
-								<a href="#">STANDS</a>
-							</li>
-						</ul> -->
-
 						<?php
 						wp_nav_menu(array('menu' => $settings['direct_access_links_menu'], 'depth' => 1, 'container' => '')) ?>
 					</div>
