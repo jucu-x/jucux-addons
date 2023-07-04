@@ -36,14 +36,14 @@
 
     .jucux-fitectur-mmw-nav-modal {
         background-blend-mode: difference;
-        //display: none;
-        display: flex;
+        display: none;
+        //display: flex;
         position: fixed;
         top: 0;
         left: 0;
 		z-index: 1000;
-        //opacity: 0%;
-        opacity: 100%;
+        opacity: 0%;
+        //opacity: 100%;
         width: 100vw;
         height: 100vh;
 		
