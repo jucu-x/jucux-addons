@@ -21,7 +21,7 @@
                 nav_modal.style.opacity = "100%";
             }, 1);
 		}
-        
+        document.body.style.overflow = "hidden";
     }
 
     function closeNav(this: HTMLButtonElement) {
@@ -32,7 +32,7 @@
 				nav_modal.style.display = "none";
 			}, 500);
 		}
-        
+        document.body.style.overflow = "auto";
     }
 
     // MOSTRAR SUBMENUS AL HACER HOVER-----------------------------------------
