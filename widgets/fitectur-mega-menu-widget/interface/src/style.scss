@@ -219,7 +219,9 @@
                     gap: 1.3rem;
                 }
                 @media (max-width: 490px) {
-                    flex-grow: 1;
+
+                    min-height: 6rem;
+					padding: 20px 6vw;
                 }
 
                 h3 {
@@ -245,6 +247,13 @@
                             text-decoration: underline;
                         }
                     }
+					@media (max-width: 1370px) {
+						gap: 3rem;
+					}
+					@media (max-width: 490px) {
+						gap: 1.5rem;
+						
+					}
                 }
             }
         }
