@@ -1,40 +1,48 @@
 (() => {
     // ABRIR/CERRAR MEGA MENÚ-----------------------------------------
 
-    const jucux_fitectur_mega_menu_widget_burger_button = document.getElementById(
-        "jucux_fitectur_mega_menu_widget_burger_button"
-    );
-    const jucux_fitectur_mega_menu_widget_close_button = document.getElementById(
-        "jucux_fitectur_mega_menu_widget_close_button"
-    );
-    const jucux_fitectur_mmw_nav_modal = document.getElementById("jucux_fitectur_mmw_nav_modal");
+	const burger_buttons = document.querySelectorAll(".jucux-fitectur-mega-menu-widget-burger-button");
+	const close_buttons = document.querySelectorAll(".jucux-fitectur-mega-menu-widget-close-button");
 
-    jucux_fitectur_mega_menu_widget_burger_button?.addEventListener("click", openNav);
-    jucux_fitectur_mega_menu_widget_close_button?.addEventListener("click", closeNav);
+	burger_buttons.forEach(burger_button => {
+		burger_button.addEventListener("click", openNav);
+	});
+	close_buttons.forEach(close_button => {
+		close_button.addEventListener("click", closeNav);
+	});
+    
 
-    function openNav() {
-        if (jucux_fitectur_mmw_nav_modal) {
-            jucux_fitectur_mmw_nav_modal.style.display = "flex";
-            setTimeout(() => {
-                jucux_fitectur_mmw_nav_modal.style.opacity = "100%";
+    function openNav(this:HTMLButtonElement) {
+		
+		let nav_modal = this.parentElement?.querySelector(".jucux-fitectur-mmw-nav-modal") as HTMLElement;
+		if (nav_modal) {
+			nav_modal.style.display = "flex";
+			setTimeout(() => {
+                nav_modal.style.opacity = "100%";
             }, 1);
-        }
+		}
+        
     }
 
-    function closeNav() {
-        if (jucux_fitectur_mmw_nav_modal) {
-            jucux_fitectur_mmw_nav_modal.style.opacity = "0";
-            setTimeout(() => {
-                jucux_fitectur_mmw_nav_modal.style.display = "none";
-            }, 500);
-        }
+    function closeNav(this: HTMLButtonElement) {
+		let nav_modal = this.parentElement as HTMLElement;
+		if (nav_modal) {
+			nav_modal.style.opacity = "0";
+			setTimeout(() => {
+				nav_modal.style.display = "none";
+			}, 500);
+		}
+        
     }
 
     // MOSTRAR SUBMENUS AL HACER HOVER-----------------------------------------
 
-    const jucux_fitectur_mmw_main_menu = document.getElementById("jucux_fitectur_mmw_main_menu");
-
-    jucux_fitectur_mmw_main_menu?.addEventListener("mouseover", showSubMenu);
+    
+	const main_menus = document.querySelectorAll(".jucux-fitectur-mmw-main-menu");
+	main_menus.forEach(main_menu => {
+		(main_menu as HTMLElement).addEventListener("mouseover", showSubMenu);
+	});
+    
 
     function showSubMenu(e: MouseEvent) {
         if (e.target) {
